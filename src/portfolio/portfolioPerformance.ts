@@ -1,7 +1,7 @@
 /**
  * Represents the portfolio performance
  */
-interface PortfolioPerformance {
+interface PortfolioPerformance{
  	    initialInvestment: number;
         currentValue: number;
         profitOrLoss: number;
@@ -54,4 +54,32 @@ export function calculatePortfolioPerformance(
         percentageChange,
         performanceSummary,
     };
+}
+
+/**
+ * Represents investments/assets
+ */
+interface Asset{
+    name: string;
+    value: number;
+}
+
+/**
+ * Finds the largest holding in a portfolio
+ * @param assets - An array of the assets in the portfolio
+ * @returns The investment that is worth the most
+ */
+export function findLargestHolding(
+    assets: Asset[]
+): Asset | null{
+    if (assets.length === 0) return null;
+
+    let largestHolding: Asset = assets[0];
+
+    for (const asset of assets){
+        if (asset.value > largestHolding.value){
+            largestHolding = asset;
+        }
+    }
+    return largestHolding;
 }
