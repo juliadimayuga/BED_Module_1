@@ -108,7 +108,7 @@ export function calculateAssetAllocation(
 
     for (const asset of assets){
         const percentage: number = (asset.value / totalPortfolio) * 100;
-        assetAllocation += `${asset.name}: ${percentage.toFixed(2)}%\n`
+        assetAllocation += ` ${asset.name}: ${percentage.toFixed(2)}% `
     }
 
     return assetAllocation;
