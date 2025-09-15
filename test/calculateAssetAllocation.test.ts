@@ -3,7 +3,7 @@ import { calculateAssetAllocation } from "../src/portfolio/portfolioPerformance"
 describe("calculateAssetAllocation", () => {
     it("should calculate even distributions", () =>{
         //Arrange
-        const assets = [
+        const assets: {name: string, value: number}[] = [
             {name: "House", value: 50},
             {name: "Car", value: 50}
         ];
@@ -17,7 +17,7 @@ describe("calculateAssetAllocation", () => {
 
     it("should calculate uneven distributions", () =>{
         //Arrange
-        const assets = [
+        const assets: {name: string, value: number}[] = [
             {name: "House", value: 75},
             {name: "Car", value: 25}
         ];
