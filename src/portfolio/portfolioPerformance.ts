@@ -1,3 +1,5 @@
+import { assert } from "console";
+
 /**
  * Represents the portfolio performance
  */
@@ -82,4 +84,32 @@ export function findLargestHolding(
         }
     }
     return largestHolding;
+}
+
+/**
+ * Calculates how much of the portfolio is invested in each asset
+ * @param assets - An array of the assets in the portfolio
+ * @returns A string of the assets and how much is invested in each of them
+ */
+export function calculateAssetAllocation(
+    assets: Asset[]
+): string{
+    let totalPortfolio: number = 0;
+
+    for (const asset of assets){
+        totalPortfolio += asset.value;
+    }
+
+    let assetAllocation: string = "";
+
+    if (totalPortfolio === 0){
+        return assetAllocation;
+    }
+
+    for (const asset of assets){
+        const percentage: number = (asset.value / totalPortfolio) * 100;
+        assetAllocation += `${asset.name}: ${percentage.toFixed(2)}%\n`
+    }
+
+    return assetAllocation;
 }
